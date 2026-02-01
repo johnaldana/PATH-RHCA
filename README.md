@@ -35,20 +35,20 @@ Every section covers a core system administration topic and follows the same con
 ```
 path-rhcsa/
 ├── README.md
-├── 01-users-and-access/
+├── 01-essential-tools/
 │   ├── guide.md
 │   ├── tasks.md
 │   ├── project.md
 │   └── evidence.md  
 │  
-├── 02-storage-and-filesystems/
+├── 02-users-and-access/
 │   ├── guide.md
 │   ├── tasks.md
 │   ├── project.md
 │   └── evidence.md  
 │   
 ├── ...
-├── 10-automation-and-maintenance/
+├── 10-security-and-selinux/
 └── 99-macro-project/
     ├── description.md
     ├── architecture.md
