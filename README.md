@@ -1,18 +1,19 @@
 # PATH RHCA
 
-**Hands-on roadmap for Red Hat certificacions**
+**_Hands-on roadmap for Red Hat certifications_**
 Focused on building real system administration skills through practical projects and detailed technical documentation.
 
-This repositorio is organized as a set of certification paths, each one aligned with a specific Red Hat Certification and is built around **real-world operational scenarios** rather than purely theoretical content.
+This repository is organized as a set of certification paths, each one aligned with a specific Red Hat certification and is built around **_real-world operational scenarios_** rather than purely theoretical content.
 
-The objective goes beyond certification preparation. 
-This path is designed to build **real operational competence** to support **mission-critical workloads** such as SAP, Temenos, EPIC, and SCADA systems, as well as other high-availability enterprise environments running on Red Hat Enterprise Linux
+This path is designed to build **_real operational competence_** to support
+**_mission-critical Linux platforms_** used by enterprise workloads such as
+SAP environments running on Red Hat Enterprise Linux.
 
-These systems operate in environments where downtime, misconfiguration, or weak security controls introduce **significant business risk — often in the millions**.
+These systems operate in environments where downtime, misconfiguration, or weak security controls introduce **_significant business risk with potentially severe financial impact_**.
 
-**A company cannot afford to fly an airplane with a single engine**.  
+### **_A company cannot afford to fly an airplane with a single engine_**.  
 
-## Certification Routes
+## Certification Paths
 
 This repository includes the following Red Hat–aligned learning routes:
 
@@ -31,19 +32,20 @@ Every section covers a core system administration topic and follows the same con
 
 ## Example structure (RHCSA):
 
+```
 path-rhcsa/
 ├── README.md
 ├── 01-users-and-access/
 │   ├── guide.md
 │   ├── tasks.md
 │   ├── project.md
-│   └── evidences.md  
+│   └── evidence.md  
 │  
 ├── 02-storage-and-filesystems/
 │   ├── guide.md
 │   ├── tasks.md
 │   ├── project.md
-│   └── evidences.md  
+│   └── evidence.md  
 │   
 ├── ...
 ├── 10-automation-and-maintenance/
@@ -51,6 +53,7 @@ path-rhcsa/
     ├── description.md
     ├── architecture.md
     └── troubleshooting.md
+```
 
 ## Section File Breakdown
 
@@ -63,7 +66,7 @@ Each section contains the following files:
 
 **tasks.md**
 - RHCSA-style practical questions
-- Real-world inspired scenarios
+- Real-world scenarios
 
 **project.md**
 Includes:
@@ -74,7 +77,7 @@ Includes:
   
 ## Macro Project
 
-Each certification path ends with a **final macro project** that integrates multiple topics into a single enterprise-like Linux environment.
+Each certification path ends with a **_final macro project_** that integrates multiple topics into a single enterprise-like Linux environment.
 
 The macro project focuses on:
 - System integration
@@ -89,7 +92,7 @@ The macro project focuses on:
 - Document actions and results
 - Use the macro project as a capstone
 
-## Current Progress (Febrery 2026)
+## Current Progress (February 2026)
 
 | Path              | Status       |
 |-------------------|--------------|
