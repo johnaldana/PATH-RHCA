@@ -23,6 +23,21 @@ A system administrator reports repeated authentication failures on the server.
 - Use pipes and text-processing commands only.
 - Output must contain **only the final count**.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  journalctl -u sshd | grep "Failed password" | wc -l > /root/ssh_failures.txt
+  ```
+  **Check**
+
+  ```bash
+  cat /root/ssh_failures.txt
+  ```
+</details>
+
 ---
 
 ## Task 2 – Controlled Output Redirection
@@ -37,6 +52,22 @@ and saves the output to `/tmp/etc_audit.txt`.
 ### Constraints
 - No combined redirection (`&>`).
 - Do not overwrite existing files unintentionally.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  find /etc -type f -exec ls -lh {} \; 1> /tmp/etc_audit.txt 2> /tmp/etc_errors.log
+  ```
+  **Check**
+
+  ```bash
+  cat /tmp/etc_audit.txt 
+  cat /tmp/etc_errors.log
+  ```
+</details>
 
 ---
 
@@ -54,6 +85,16 @@ You are asked to review a cleanup operation before it is executed in production.
 - Output must be human-readable.
 - No interactive commands.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  find /var/log -type f -name "*.log" -size +20M -exec ls -lh {} \;
+  ```
+</details>
+
 ---
 
 ## Task 4 – User Environment Verification
@@ -68,6 +109,16 @@ A user claims their environment variables are not loading correctly.
 ### Constraints
 - Do not modify user configuration files.
 - You must use built-in system documentation to validate behavior.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  su - operator ; echo $HOME ; echo $SHELL ; echo $PATH
+  ```
+</details>
 
 ---
 
@@ -86,6 +137,18 @@ You find two files pointing to the same content in `/tmp`.
 
 ---
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  ls -li /tmp/file1 /tmp/file2 # Same inode → hard link. Different inodes with -> → symbolic link.
+  ```
+</details>
+
+---
+
 ## Task 6 – Permission Correction Scenario
 
 A script located at `/opt/scripts/backup.sh` fails to execute.
@@ -100,6 +163,21 @@ A script located at `/opt/scripts/backup.sh` fails to execute.
 ### Constraints
 - Ownership must remain unchanged.
 - Use **numeric permission notation**.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  chmod 750 /opt/scripts/backup.sh
+  ```
+  **Check**
+
+  ```bash
+  ls -l /opt/scripts/backup.sh
+  ```
+</details>
 
 ---
 
@@ -118,6 +196,21 @@ You must collect configuration evidence before a system change.
 - Preserve file permissions.
 - Do not include unnecessary files.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  tar -cpzf /root/system_baseline.tar.gz /etc/passwd /etc/group /etc/fstab
+  ```
+  **Check**
+
+  ```bash
+  tar -tzvf /root/system_baseline.tar.gz
+  ```
+</details>
+
 ---
 
 ## Task 8 – Documentation-Driven Troubleshooting
@@ -132,6 +225,16 @@ You need to understand how system-wide environment variables are loaded.
 ### Constraints
 - Use `man`, `info`, or documentation under `/usr/share/doc`.
 - No internet access.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  man man ; man 5 login ; man 5 profile
+  ```
+</details>
 
 ---
 
@@ -148,23 +251,19 @@ Generate a list of **unique usernames** currently logged into the system.
 - Do not use temporary files.
 - Do not use scripting languages.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  who | cut -d " " -f 1 | sort | uniq
+  ```
+</details>
+
 ---
 
-## Task 10 – Command History Forensics
-
-You are auditing an administrator session.
-
-### Requirements
-- Identify the last command executed that modified files under `/etc`.
-- Re-run that command safely to verify its effect.
-
-### Constraints
-- Do not modify system files during verification.
-- Use shell history features only.
-  
----
-
-## Task 11 – Advanced Text Filtering (Regex / awk)
+## Task 10 – Advanced Text Filtering (Regex / awk)
 
 The Security team requires a list of all system accounts that are allowed to log in.
 
@@ -187,9 +286,24 @@ The Security team requires a list of all system accounts that are allowed to log
 - Do not include header lines or extra formatting.
 - Do not modify /etc/passwd.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  awk -F: '$3 >= 0 && $3 <= 999 && $7 !~ /(nologin|false)/ {print $1}' /etc/passwd > /root/login_accounts.txt
+  ```
+  **Check**
+
+  ```bash
+  cat /root/login_accounts.txt
+  ```
+</details>
+
 ---
 
-## Task 12 – Secure Remote Operations (SSH)
+## Task 11 – Secure Remote Operations (SSH)
 
 You need to verify connectivity to a remote system while maintaining strict security controls.
 
@@ -215,28 +329,66 @@ You need to verify connectivity to a remote system while maintaining strict secu
 - The command must execute and exit immediately.
 - Do not open an interactive SSH session.
 
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  ssh admin@10.0.2.15 uptime >> /tmp/remote_checks.log  
+  ```
+  **Check**
+
+  ```bash
+  cat /tmp/remote_checks.log
+  ```
+</details>
+
 ---
 
-## Task 13 – Locating System Documentation
+## Task 12 – Command Location Without which
 
-A colleague mentioned that sample configuration files for the cron service are available in the local system documentation.
+You need to identify the full filesystem path of a command.
 
 ### Requirements
 
-- Identify the documentation directory under:
+- Identify the full path of the tar command.
 
-    /usr/share/doc/
+## Constraints
 
-  associated with the cron or crontabs package.
+- Use built-in shell tools only.
+- Do not use the which command.
 
-- Locate a file named README (or similar).
+<details>
+  <summary><b> Show Solution </b></summary>
 
-- Copy its contents to:
+  **Command**
 
-  /root/cron_reference.txt
+  ```bash
+  type -a tar
+  ```
+</details>
+
+## Task 13 – Safe File Inspection (No Modification)
+
+You need to inspect recent log activity without modifying any files.
+
+### Requirements
+
+- Display the last 20 lines of /var/log/messages.
+- Do not edit or alter the file.
 
 ### Constraints
 
-- Use find or rpm -qd.
-- Do not manually browse the entire filesystem.
-- Do not install new packages.
+- Use command-line tools only.
+- No interactive editors.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  tail -n 20 /var/log/messages
+  ```
+</details>
