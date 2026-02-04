@@ -107,3 +107,15 @@ The macro project focuses on:
 ## Tooling Note
 
 AI tools were used as a support resource for documentation structure and learning guidance. All technical work was performed and verified manually.
+
+## Dedication
+
+This repository is a learning gift for my son, who is beginning his journey into Linux and Systems Engineering.
+
+**Juventud, divino tesoro,**   
+**¡ya te vas para no volver!**   
+**Cuando quiero llorar, no lloro…**   
+**y a veces lloro sin querer.**   
+ — *Rubén Darío*
+
+*Son, make the most of this treasure while it's in your hands!*
