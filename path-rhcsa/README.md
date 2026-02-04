@@ -92,3 +92,6 @@ following domains:
 - Identify SELinux file and process contexts
 - Restore default SELinux contexts
 - Manage SELinux ports and boolean settings
+
+## Disclaimer
+This repository is a personal study guide and hands-on lab environment based on public Red Hat Exam Objectives (EX200). It does not contain actual exam questions, "dumps," or NDA-protected material. All scenarios are original and designed to simulate real-world system administration challenges.
