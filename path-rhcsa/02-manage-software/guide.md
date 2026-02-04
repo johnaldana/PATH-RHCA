@@ -66,7 +66,7 @@ dnf reinstall firewalld -y
 
 ## 3. RPM Package Verification and Queries
 
-# Basic rpm -q options (most used)
+### Basic rpm -q options (most used)
 
 ```bash
 rpm -qa                    # list all installed packages
