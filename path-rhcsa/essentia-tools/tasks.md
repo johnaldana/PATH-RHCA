@@ -392,3 +392,67 @@ You need to inspect recent log activity without modifying any files.
   tail -n 20 /var/log/messages
   ```
 </details>
+
+## Task 14 – Advanced File Location by Ownership
+
+The security auditor needs to find all files belonging to a specific user to ensure no data was left behind after their departure.
+
+### Requirements
+
+- Locate all files in the entire system owned by the user operator.
+- Copy all these files to the directory /root/operator_files/.
+
+### Constraints
+
+- Do not use locate (must be real-time search).
+- The destination directory must be created before copying.
+- Redirect any "Permission denied" errors to /dev/null so they don't clutter the output.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  mkdir -p /root/operator_files/
+  find / -user operator -exec cp -p {} /root/operator_files/ \; 2>/dev/null 
+  ```
+  **Check**
+
+  ```bash
+  ls -l /root/operator_files/
+  ```
+</details>
+
+## Task 15 – Selective Archive Extraction
+
+You have been given a system backup, but you only need to extract specific configuration files to save disk space.
+
+### Requirements
+
+- List the contents of the archive /root/system_baseline.tar.gz (created in Task 7) without extracting it.
+- Extract only the file etc/fstab from that archive into the /tmp directory.
+
+## Constraints
+
+- Do not extract the entire archive.
+- Use the original archive from Task 7.
+
+<details>
+  <summary><b> Show Solution </b></summary>
+
+  **Command**
+
+  ```bash
+  # List contents
+  tar -tvf /root/system_baseline.tar.gz
+
+  # Extract specific file to /tmp
+  tar -xzf /root/system_baseline.tar.gz -C /tmp etc/fstab
+  ```
+  **Check**
+
+  ```bash
+  ls -l /tmp/etc/fstab
+  ```
+</details>
