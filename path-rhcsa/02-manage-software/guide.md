@@ -5,15 +5,15 @@ All tasks are expected to be performed from the **command line only**, as requir
 
 ---
 
-## 1. RPM Repositories Management
+## 2.1. RPM Repositories Management
 
 RHEL systems use **DNF** to manage software via RPM repositories.
 
 ### List configured repositories
 
 ```bash
-dnf repolist               # shows only enabled repositories
-dnf repolist all           # shows all repositories (enabled + disabled)
+dnf repolist                 # shows only enabled repositories
+dnf repolist --all           # shows all repositories (enabled + disabled)
 ```
 ### Repository configuration files
 
@@ -40,13 +40,10 @@ dnf clean all && dnf makecache    # refresh metadata after changing repos
 
 ### Enable or disable a repository
 ```bash
-#Install it if not already present:
-dnf install dnf-plugins-core -y
-
-dnf config-manager --set-enabled repo_id
-dnf config-manager --set-disabled repo_id
+dnf config-manager --enablerepo=baseos
+dnf config-manager --disablerepo=appstream
 ```
-## 2. Installing and Removing RPM Packages
+## 2.2. Installing and Removing RPM Packages
 
 ```bash
 dnf install nginx vim git -y
@@ -63,7 +60,7 @@ dnf update kernel
 dnf reinstall firewalld -y
 ```
 
-## 3. RPM Package Verification and Queries
+## 2.3. RPM Package Verification and Queries
 
 ### Basic rpm -q options (most used)
 
@@ -78,7 +75,7 @@ rpm -V  <package>          # verify integrity (checksums, permissions, etc.)
 rpm -Va                    # verify ALL installed packages
 ```
 
-## 4. Modules
+## 2.4. Modules
 
 Modules are a feature of AppStream that allows the same software to have multiple versions/streams available at the same time on the system.
 
@@ -119,7 +116,7 @@ dnf module info nodejs:20
 dnf module info postgresql:15
 ```
 
-## 5. Flatpak Overview
+## 2.5. Flatpak Overview
 
 Flatpak is used for user-space desktop applications, isolated from the base OS.
 
@@ -137,7 +134,7 @@ dnf install flatpak -y
 
 # List configured remotes
 flatpak remotes
-flatpak remote-list --show-details
+flatpak remote-ls --show-details
 
 # Add Flathub (almost always required in the exam)
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
