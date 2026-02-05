@@ -14,7 +14,6 @@ RHEL systems use **DNF** to manage software via RPM repositories.
 ```bash
 dnf repolist               # shows only enabled repositories
 dnf repolist all           # shows all repositories (enabled + disabled)
-dnf repolist --enabled     # (optional but very useful – only active ones)
 ```
 ### Repository configuration files
 
