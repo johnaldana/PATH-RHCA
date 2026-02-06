@@ -39,7 +39,6 @@ mkdir -p "$WORKDIR"
 } >> "$WORKDIR/security_audit.txt"
 
 # Logs
-# Logs
 {
   echo "--- Last 50 System Errors (Journal) ---"
   journalctl -p err -n 50
