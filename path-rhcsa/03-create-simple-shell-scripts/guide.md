@@ -166,6 +166,7 @@ fi
 
 `[[ ]]` is a Bash extension that provides safer syntax, logical operators (`&&`, `||`)
 inside the test, and pattern matching. 
+
 ---
 
 ## 3.5. Logical Operators: && and ||
