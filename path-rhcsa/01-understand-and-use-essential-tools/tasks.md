@@ -1,5 +1,5 @@
-# 01 – Understand and Use Essential Tools  
-**RHCSA Tasks – RHEL 9**
+# 01 – Understand and Use Essential Tools - Tasks
+**RHCSA – RHEL 9**
 
 These tasks are designed to simulate **real RHCSA-style scenarios** and
 day-to-day system administration challenges.

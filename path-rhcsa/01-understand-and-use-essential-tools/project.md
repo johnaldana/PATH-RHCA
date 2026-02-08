@@ -1,6 +1,5 @@
-## Section 01 Project: System Baseline & Diagnostic Tool
-
-### Scenario
+# 01-Understand and use essential tools  
+## Project: System Baseline & Diagnostic Tool
 
 A new server has been deployed to host a mission-critical SAP workload. Before handing it over to the application team, the **Lead Admin** requires a **System Baseline Report.** This report will serve as a "snapshot" of the system's healthy state, ensuring that any future configuration drift or performance issues can be compared against this initial baseline.
 

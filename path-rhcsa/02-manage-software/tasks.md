@@ -1,4 +1,4 @@
-# Section 02 – Tasks: Manage Software 
+# 02 – Manage Software - Tasks
 **RHCSA – RHEL 9**
 
 All tasks must be completed using the command line only.

@@ -1,5 +1,4 @@
-# Section 02 – Final Project
-
+# 02 – Manage Software
 ## Project Phoenix: Software Infrastructure Baseline
 
 The **SAP Application Team** is scheduled to start the NetWeaver installation tomorrow. As the Junior Admin, you must deliver a **"Software Birth Certificate"** that proves the server meets all vendor requirements. We need to ensure that the middleware has the correct **Node.js** version, that legacy encryption is available for the SAP installer.

@@ -162,7 +162,10 @@ fi
 [ "$STR1" == "$STR2" ]  # equal
 [ "$STR1" != "$STR2" ]  # not equal
 ```
+**[!TIP]**
 
+`[[ ]]` is a Bash extension that provides safer syntax, logical operators (`&&`, `||`)
+inside the test, and pattern matching. 
 ---
 
 ## 3.5. Logical Operators: && and ||
@@ -225,6 +228,8 @@ done
 ```bash
 #!/bin/bash
 
+COUNT=1
+
 until [ $COUNT -gt 5 ]; do
     echo "Count is $COUNT"
     ((COUNT++))
@@ -236,6 +241,8 @@ done
 ## 3.7. User Input (read)
 
 The `read` command allows you to capture user input. Use `-p` for a prompt and `-s` for sensitive data (passwords).
+
+**Default Variable:** If no variable name is provided, the input is automatically stored in the built-in variable $REPLY.
 
 ```bash
 #!/bin/bash
