@@ -120,8 +120,7 @@ During troubleshooting, you find a binary on the system and need to know which p
   rpm -qf /usr/bin/passwd
   rpm -qi passwd
   ```
-  **Check**
-
+  
 </details>
 
 ---
