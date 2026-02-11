@@ -87,11 +87,10 @@ sudo systemctl set-default graphical.target
    ```bash
    mount -o remount,rw /sysroot
    chroot /sysroot
-   passwd   # change root password
-   touch /.autorelabel   # if SELinux is enabled — very important!
+   passwd                           # change root password
+   touch /.autorelabel              # if SELinux is enabled — very important!
    exit
-   exit                  # continue booting
-   reboot
+   exit                             # continue booting
    ```
 
 ---
@@ -117,6 +116,7 @@ ps aux --sort=-%mem | head
 ```bash
 kill <PID>             # normal termination SIGTERM
 kill -9 <PID>          # force termination SIGKILL
+killall dd             # kill processes by name
 pkill -9 httpd         # Kill process by name
 pkill -u maria         # Kill all processes of a user
 pgrep -u root sshd     # Finds PIDs for sshd owned by root
