@@ -73,7 +73,12 @@ User appuser started a memory-intensive R script on server report-qa-02.
   pgrep -u appuser 
 
   # Gracefully terminate all processes except the SSH session
-  pkill -u appuser -v -x "bash|sshd"
+  for pid in $(pgrep -u appuser); do
+    cmd=$(ps -p "$pid" -o comm=)
+    if [[ "$cmd" != "bash" && "$cmd" != "sshd" ]]; then
+        kill -15 "$pid"
+    fi
+  done
 
   # Confirm that swap usage starts decreasing after termination
   watch -d free -h
