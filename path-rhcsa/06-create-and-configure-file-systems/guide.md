@@ -77,7 +77,7 @@ vim /etc/fstab
 
 # Add lines (use UUID, not /dev/sdX)
 UUID=abcd1234-...     /mnt/xfs    xfs     defaults        0 0
-UUID=efgh5678-...     /mnt/ext4   ext4    defaults        0 0
+UUID=efgh5678-...     /mnt/ext4   ext4    defaults        0 2
 UUID=ijkl9012-...     /mnt/vfat   vfat    defaults,uid=1000,gid=1000,umask=002    0 0
 
 # Test without reboot
@@ -104,6 +104,8 @@ echo "/nfsexport  192.168.5.0/24(rw,sync,no_subtree_check)" >> /etc/exports
 exportfs -ra
 firewall-cmd --permanent --add-service=nfs
 firewall-cmd --reload
+
+showmount -e localhost
 ```
 **root_squash (default behavior)**
 
@@ -153,7 +155,7 @@ vim /etc/auto.master
 
 vim /etc/auto.home
 # Format:  key    options                          location
-*        -fstype=nfs4,rw,soft,intr            nfsserver.example.com:/home/&
+*        -fstype=nfs4,rw,soft            nfsserver.example.com:/home/&
 
 # Start and enable
 systemctl enable --now autofs
