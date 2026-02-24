@@ -117,9 +117,9 @@ showmount -e localhost
 
 **NFS client side**
 
+```bash
 dnf install nfs-utils -y
 
-```bash
 mkdir /mnt/nfs_share
 
 # Manual mount

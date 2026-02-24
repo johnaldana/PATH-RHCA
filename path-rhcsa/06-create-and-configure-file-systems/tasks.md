@@ -136,7 +136,7 @@ A removable disk must be prepared for cross-platform compatibility.
 
   mount /dev/sdd1 /vfatshare
 
-  echo "UUID=$(blkid /dev/sdd1 -s UUID -o value) /vfatshare defaults,uid=1000,gid=1000,umask=002 0 0" >> /etc/fstab
+  echo "UUID=$(blkid /dev/sdd1 -s UUID -o value) /vfatshare vfat defaults,uid=1000,gid=1000,umask=002 0 0" >> /etc/fstab
 
   umount /vfatshare
   mount -a
