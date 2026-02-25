@@ -1,6 +1,6 @@
 # 06-Create and Configure File Systems - Guide
 
-**Official objectives (RHEL 9 / RHCSA EX200):**
+**Official objectives (RHCSA EX200):**
 - Create, mount, unmount, and use **vfat**, **ext4**, and **xfs** file systems
 - Mount and unmount network file systems using **NFS**
 - Configure **autofs**
