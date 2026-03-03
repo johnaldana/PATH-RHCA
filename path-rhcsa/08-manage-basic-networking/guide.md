@@ -192,7 +192,60 @@ firewall-cmd --complete-reload # Nuclear option (drops all connections)
 ```
 ---
 
-## 8.6. Verification Commands
+## 8.6. Firewalld Zone Targets
+
+Each firewalld zone has a target policy.
+
+The target defines what happens to traffic that does not match any explicit rule (service, port, rich rule).
+
+**You can check the target with:**
+
+```bash
+firewall-cmd --zone=public --list-all
+```
+
+**Example output:**
+
+```bash
+target: default
+```
+**Available Targets**
+
+| **Target** | **Behavior** |
+| :--- | :--- |
+| default | Uses zone default behavior |
+| ACCEPT | Allows all traffic |
+| REJECT | Blocks traffic and sends rejection response |
+| DROP | Silently drops traffic |
+
+**Setting a Target**
+
+To change the target of a zone permanently:
+
+```bash
+firewall-cmd --permanent --zone=public --set-target=DROP
+firewall-cmd --reload
+```
+**Practical Example – IPv4 Drop Policy**
+
+To drop all incoming IPv4 traffic in a zone:
+
+```bash
+firewall-cmd --permanent --zone=public --set-target=DROP
+firewall-cmd --reload
+```
+
+**Effect:**
+
+- All IPv4 traffic is dropped unless explicitly allowed.
+
+- Established/related connections continue working.
+
+- IPv6 remains unaffected unless configured separately.
+
+---
+
+## 8.7. Verification Commands
 
 **Always verify your configuration:**
 
