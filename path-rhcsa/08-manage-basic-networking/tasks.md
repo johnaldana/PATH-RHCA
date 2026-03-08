@@ -487,8 +487,6 @@ Harden IPv6 firewall configuration.
   ZONE=$(firewall-cmd --get-active-zones | grep public -A1 | head -n1)
 
   firewall-cmd --permanent --zone=public --set-target=DROP
-
-  firewall-cmd --permanent --zone=public --add-icmp-block-inversion=no
   
   firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv6" icmp-type name="echo-request" accept'
   firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv6" icmp-type name="neighbor-solicitation" accept'
