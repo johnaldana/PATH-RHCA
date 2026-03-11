@@ -236,7 +236,10 @@ Avoid editing `/etc/sudoers` directly. Instead, create files in `/etc/sudoers.d/
 
 - **Syntax Examples:**
 
-    - **Full access (no password):** username ALL=(ALL) NOPASSWD: ALL
+    - **Full access (no password):** 
+          
+          user      host run-as         command
+          username  ALL=(ALL) NOPASSWD: ALL
 
     - **Specific command for a group:** %finance ALL=/usr/bin/dnf
   
