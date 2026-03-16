@@ -426,7 +426,7 @@ A senior administrator named `former-admin` left the company unexpectedly. Immed
 
 - Lock the user account immediately.
 
-- Remove the user from all **privileged groups** such as `wheel` or `sudo`.
+- Remove the user from all **privileged groups** such as `wheel`.
 
 - Change the login shell to:
 
@@ -444,7 +444,6 @@ A senior administrator named `former-admin` left the company unexpectedly. Immed
   ```bash
   sudo usermod -L former-admin
   sudo gpasswd -d former-admin wheel
-  sudo gpasswd -d former-admin sudo
   sudo usermod -s /sbin/nologin former-admin
   sudo chage -E $(date -d "+7 days" +%Y-%m-%d) former-admin
   
